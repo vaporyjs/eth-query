@@ -1,10 +1,10 @@
 const extend = require('xtend')
 const createRandomId = require('json-rpc-random-id')()
 
-module.exports = EthQuery
+module.exports = VapQuery
 
 
-function EthQuery(provider){
+function VapQuery(provider){
   const self = this
   self.currentProvider = provider
 }
@@ -14,57 +14,57 @@ function EthQuery(provider){
 //
 
 // default block
-EthQuery.prototype.getBalance =                          generateFnWithDefaultBlockFor(2, 'eth_getBalance')
-EthQuery.prototype.getCode =                             generateFnWithDefaultBlockFor(2, 'eth_getCode')
-EthQuery.prototype.getTransactionCount =                 generateFnWithDefaultBlockFor(2, 'eth_getTransactionCount')
-EthQuery.prototype.getStorageAt =                        generateFnWithDefaultBlockFor(3, 'eth_getStorageAt')
-EthQuery.prototype.call =                                generateFnWithDefaultBlockFor(2, 'eth_call')
+VapQuery.prototype.getBalance =                          generateFnWithDefaultBlockFor(2, 'vap_getBalance')
+VapQuery.prototype.getCode =                             generateFnWithDefaultBlockFor(2, 'vap_getCode')
+VapQuery.prototype.getTransactionCount =                 generateFnWithDefaultBlockFor(2, 'vap_getTransactionCount')
+VapQuery.prototype.getStorageAt =                        generateFnWithDefaultBlockFor(3, 'vap_getStorageAt')
+VapQuery.prototype.call =                                generateFnWithDefaultBlockFor(2, 'vap_call')
 // standard
-EthQuery.prototype.protocolVersion =                     generateFnFor('eth_protocolVersion')
-EthQuery.prototype.syncing =                             generateFnFor('eth_syncing')
-EthQuery.prototype.coinbase =                            generateFnFor('eth_coinbase')
-EthQuery.prototype.mining =                              generateFnFor('eth_mining')
-EthQuery.prototype.hashrate =                            generateFnFor('eth_hashrate')
-EthQuery.prototype.gasPrice =                            generateFnFor('eth_gasPrice')
-EthQuery.prototype.accounts =                            generateFnFor('eth_accounts')
-EthQuery.prototype.blockNumber =                         generateFnFor('eth_blockNumber')
-EthQuery.prototype.getBlockTransactionCountByHash =      generateFnFor('eth_getBlockTransactionCountByHash')
-EthQuery.prototype.getBlockTransactionCountByNumber =    generateFnFor('eth_getBlockTransactionCountByNumber')
-EthQuery.prototype.getUncleCountByBlockHash =            generateFnFor('eth_getUncleCountByBlockHash')
-EthQuery.prototype.getUncleCountByBlockNumber =          generateFnFor('eth_getUncleCountByBlockNumber')
-EthQuery.prototype.sign =                                generateFnFor('eth_sign')
-EthQuery.prototype.sendTransaction =                     generateFnFor('eth_sendTransaction')
-EthQuery.prototype.sendRawTransaction =                  generateFnFor('eth_sendRawTransaction')
-EthQuery.prototype.estimateGas =                         generateFnFor('eth_estimateGas')
-EthQuery.prototype.getBlockByHash =                      generateFnFor('eth_getBlockByHash')
-EthQuery.prototype.getBlockByNumber =                    generateFnFor('eth_getBlockByNumber')
-EthQuery.prototype.getTransactionByHash =                generateFnFor('eth_getTransactionByHash')
-EthQuery.prototype.getTransactionByBlockHashAndIndex =   generateFnFor('eth_getTransactionByBlockHashAndIndex')
-EthQuery.prototype.getTransactionByBlockNumberAndIndex = generateFnFor('eth_getTransactionByBlockNumberAndIndex')
-EthQuery.prototype.getTransactionReceipt =               generateFnFor('eth_getTransactionReceipt')
-EthQuery.prototype.getUncleByBlockHashAndIndex =         generateFnFor('eth_getUncleByBlockHashAndIndex')
-EthQuery.prototype.getUncleByBlockNumberAndIndex =       generateFnFor('eth_getUncleByBlockNumberAndIndex')
-EthQuery.prototype.getCompilers =                        generateFnFor('eth_getCompilers')
-EthQuery.prototype.compileLLL =                          generateFnFor('eth_compileLLL')
-EthQuery.prototype.compileSolidity =                     generateFnFor('eth_compileSolidity')
-EthQuery.prototype.compileSerpent =                      generateFnFor('eth_compileSerpent')
-EthQuery.prototype.newFilter =                           generateFnFor('eth_newFilter')
-EthQuery.prototype.newBlockFilter =                      generateFnFor('eth_newBlockFilter')
-EthQuery.prototype.newPendingTransactionFilter =         generateFnFor('eth_newPendingTransactionFilter')
-EthQuery.prototype.uninstallFilter =                     generateFnFor('eth_uninstallFilter')
-EthQuery.prototype.getFilterChanges =                    generateFnFor('eth_getFilterChanges')
-EthQuery.prototype.getFilterLogs =                       generateFnFor('eth_getFilterLogs')
-EthQuery.prototype.getLogs =                             generateFnFor('eth_getLogs')
-EthQuery.prototype.getWork =                             generateFnFor('eth_getWork')
-EthQuery.prototype.submitWork =                          generateFnFor('eth_submitWork')
-EthQuery.prototype.submitHashrate =                      generateFnFor('eth_submitHashrate')
+VapQuery.prototype.protocolVersion =                     generateFnFor('vap_protocolVersion')
+VapQuery.prototype.syncing =                             generateFnFor('vap_syncing')
+VapQuery.prototype.coinbase =                            generateFnFor('vap_coinbase')
+VapQuery.prototype.mining =                              generateFnFor('vap_mining')
+VapQuery.prototype.hashrate =                            generateFnFor('vap_hashrate')
+VapQuery.prototype.gasPrice =                            generateFnFor('vap_gasPrice')
+VapQuery.prototype.accounts =                            generateFnFor('vap_accounts')
+VapQuery.prototype.blockNumber =                         generateFnFor('vap_blockNumber')
+VapQuery.prototype.getBlockTransactionCountByHash =      generateFnFor('vap_getBlockTransactionCountByHash')
+VapQuery.prototype.getBlockTransactionCountByNumber =    generateFnFor('vap_getBlockTransactionCountByNumber')
+VapQuery.prototype.getUncleCountByBlockHash =            generateFnFor('vap_getUncleCountByBlockHash')
+VapQuery.prototype.getUncleCountByBlockNumber =          generateFnFor('vap_getUncleCountByBlockNumber')
+VapQuery.prototype.sign =                                generateFnFor('vap_sign')
+VapQuery.prototype.sendTransaction =                     generateFnFor('vap_sendTransaction')
+VapQuery.prototype.sendRawTransaction =                  generateFnFor('vap_sendRawTransaction')
+VapQuery.prototype.estimateGas =                         generateFnFor('vap_estimateGas')
+VapQuery.prototype.getBlockByHash =                      generateFnFor('vap_getBlockByHash')
+VapQuery.prototype.getBlockByNumber =                    generateFnFor('vap_getBlockByNumber')
+VapQuery.prototype.getTransactionByHash =                generateFnFor('vap_getTransactionByHash')
+VapQuery.prototype.getTransactionByBlockHashAndIndex =   generateFnFor('vap_getTransactionByBlockHashAndIndex')
+VapQuery.prototype.getTransactionByBlockNumberAndIndex = generateFnFor('vap_getTransactionByBlockNumberAndIndex')
+VapQuery.prototype.getTransactionReceipt =               generateFnFor('vap_getTransactionReceipt')
+VapQuery.prototype.getUncleByBlockHashAndIndex =         generateFnFor('vap_getUncleByBlockHashAndIndex')
+VapQuery.prototype.getUncleByBlockNumberAndIndex =       generateFnFor('vap_getUncleByBlockNumberAndIndex')
+VapQuery.prototype.getCompilers =                        generateFnFor('vap_getCompilers')
+VapQuery.prototype.compileLLL =                          generateFnFor('vap_compileLLL')
+VapQuery.prototype.compileSolidity =                     generateFnFor('vap_compileSolidity')
+VapQuery.prototype.compileSerpent =                      generateFnFor('vap_compileSerpent')
+VapQuery.prototype.newFilter =                           generateFnFor('vap_newFilter')
+VapQuery.prototype.newBlockFilter =                      generateFnFor('vap_newBlockFilter')
+VapQuery.prototype.newPendingTransactionFilter =         generateFnFor('vap_newPendingTransactionFilter')
+VapQuery.prototype.uninstallFilter =                     generateFnFor('vap_uninstallFilter')
+VapQuery.prototype.getFilterChanges =                    generateFnFor('vap_getFilterChanges')
+VapQuery.prototype.getFilterLogs =                       generateFnFor('vap_getFilterLogs')
+VapQuery.prototype.getLogs =                             generateFnFor('vap_getLogs')
+VapQuery.prototype.getWork =                             generateFnFor('vap_getWork')
+VapQuery.prototype.submitWork =                          generateFnFor('vap_submitWork')
+VapQuery.prototype.submitHashrate =                      generateFnFor('vap_submitHashrate')
 
 // network level
 
-EthQuery.prototype.sendAsync = function(opts, cb){
+VapQuery.prototype.sendAsync = function(opts, cb){
   const self = this
   self.currentProvider.sendAsync(createPayload(opts), function(err, response){
-    if (!err && response.error) err = new Error('EthQuery - RPC Error - '+response.error.message)
+    if (!err && response.error) err = new Error('VapQuery - RPC Error - '+response.error.message)
     if (err) return cb(err)
     cb(null, response.result)
   })
